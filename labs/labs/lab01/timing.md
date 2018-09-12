@@ -29,7 +29,7 @@ void Planet::updateGeometry(atlas::core::Time<> const& t)
 
 }
 ```
-
+You can build a simple rotation matrix using `glm::rotate(atlas::math::Matrix4(1.0f), glm::radians(degrees), atlas::math::Vector());`.
 It may help to look at the documentation for `Time` which can be found 
 [here](https://marovira.github.io/atlas/classatlas_1_1core_1_1_time.html). Play
 around with different values. Can you make the planet spin any faster? Slower?
@@ -57,13 +57,21 @@ animation engine and the render functions sequentially. This means that they
 will be called as fast as the loop can run. In this case, we can simply write an
 `if`-statement to control when the animation gets updated. Modify
 `PlanetScene.cpp`, in particular look at `updateScene` and write the code so
-that the animation only occurs 20 times per second.
+that the animation only occurs 20 times per second. In pseudo-code, you should have something like this:
+
+```c++
+tickCount = 0;      // Global or member variable.\
+rate = ?;           // Compute the value so we update 20 times per second.
+if (tickCount == rate && mPlay)     // Notice that your counter may go over the rate. How can we fix this?
+    // Update animation here.
+// Update your tickCount here. Use mTime.deltaTime;
+```
 
 ## Task 3: Using an FPS counter
 A more consistent way of timing events is to use frame rate of the application.
 As you can tell from the FPS counter in the GUI, our refresh rate is roughly
 60 FPS. So what if we made our animation run at 60 FPS? Modify your code so that
-the animation gets updated at 60FPS.
+the animation gets updated at 60FPS. Replace the code you wrote for the previous task with the `mAnimCounter` member variable. The documentation for the FPS counter can be seen [here](https://marovira.github.io/atlas/classatlas_1_1utils_1_1_f_p_s_counter.html).
 
 As a general rule of thumb, the animation engine needs to run faster than the
 rendering code. The logic being that the animation engine requires smaller time
