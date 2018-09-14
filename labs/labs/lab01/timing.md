@@ -5,7 +5,7 @@ The purpose of this lab is to explore the concept of time in terms of
 simulation. Instructions:
 
 * Download the code to your desktops,
-* Open a command line, and navigate to the directory. Then type:
+* Open a command line, and navigate to the directory `./labs/`. Then type:
 ``` sh
 mkdir build
 cd build
