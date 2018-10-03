@@ -214,8 +214,7 @@ namespace lab3
         using atlas::math::Point;
 
         // TODO by students.
-
-        return Point(0, 0, 0);
+        return Point(0.0f, 0.0f, 0.0f);
     }
 
     void Spline::generateArcLengthTable()
@@ -228,7 +227,11 @@ namespace lab3
         }
 
         // TODO by students.
-        
+        mTable.push_back(0.0f);
+        for (int i = 1; i < mResolution + 1; ++i)
+        {
+            mTable.push_back(0.0f);
+        }
     }
 
     int Spline::tableLookUp(float distance) const
