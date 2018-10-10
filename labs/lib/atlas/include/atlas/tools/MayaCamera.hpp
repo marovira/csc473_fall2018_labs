@@ -26,7 +26,7 @@ namespace atlas
             Dolly
         };
 
-        class MayaCamera final : public utils::Camera
+        class MayaCamera : public utils::Camera
         {
         public:
             MayaCamera();
