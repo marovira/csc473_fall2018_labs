@@ -1,2 +1,0 @@
-set(LAB_SHADER_LIST
-    PARENT_SCOPE)
