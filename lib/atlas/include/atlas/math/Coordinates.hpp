@@ -84,6 +84,20 @@ namespace atlas
             float y = p.x * glm::sin(p.y);
             return Point(x, y, p.z);
         }
+
+        inline Point2 cartesianToPolar(Point2 const& p)
+        {
+            float x = glm::sqrt(p.x * p.x + p.y + p.y);
+            float y = glm::atan(p.y / p.x);
+            return Point2(x, y);
+        }
+
+        inline Point2 polarToCartesian(Point2 const& p)
+        {
+            float x = p.x * glm::cos(p.y);
+            float y = p.x * glm::sin(p.y);
+            return Point2(x, y);
+        }
     }
 }
 

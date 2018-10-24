@@ -1,0 +1,7 @@
+#pragma once
+
+namespace lab5
+{
+    constexpr const char ShaderDirectory[] = "@LAB_SHADER_ROOT@/";
+    constexpr const char DataDirectory[] = "@DATA_ROOT@/";
+}
